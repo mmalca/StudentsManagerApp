@@ -11,7 +11,7 @@ class StudentsManager {
 
 private:
 	vector<Student> students;
-	int currentID = 0;
+	int currentID = 1;
 
 public:
 	vector<Student> getStudentsList() { return students; };

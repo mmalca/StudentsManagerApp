@@ -6,9 +6,10 @@ void StudentsManager::runApplication() {
 	ui_wellcom();
 	
 	int action;
-	int status;
+	int status = 1;
 
-	while (true) {
+	//keep the application alive until the user terminates by pressing -1
+	while (status > 0) {
 		action = ui_chooseAction();
 		status = takeAction(action);
 	}
@@ -33,15 +34,15 @@ int StudentsManager::takeAction(int action){
 		degree = ui_insertDegree();
 		status = addStudent(firstName, lastName, date, degree);//
 		ui_successfullyAdded();
-		return 1;
+		return 1;//TODO: return status instead of number
 	case 2:
 		studentID = ui_insertStudentID();
 		status = deleteStudent(studentID);//
 		ui_successfullyDeleted();
-		return 1;
+		return 1;//TODO: return status instead of number
 	case 3:
 		studentID = ui_insertStudentID();
-		//
+		status = updateStudent(studentID);//TODO: ask user what to update and the updated value
 		return 1;
 	case 0:
 		return -1;
